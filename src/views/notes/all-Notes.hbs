@@ -1,0 +1,31 @@
+{{!-- _id: new ObjectId("61e59d3de746341813c906d7"),
+    title: 'I need to create new PageNetword',
+    description: 'en nodejs, mongodb, expres and others',
+    date: 2022-01-17T16:45:49.482Z,
+    __v: 0 --}}
+<div class="row">
+  {{#each notes}}
+  <div class="col-md-3" style="margin-bottom: 5px;">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title d-flex justify-content-between align-items-center">
+          {{title}} <a href="/notes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+        </h4>
+        <p>{{description}}</p>
+        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn btn-danger w-100 btn-sm" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <div class="card text-center w-50" style="margin-right: auto !important; margin-left: auto !important;">
+    <div class="card-body">
+      <h1>Hello {{user.name}}</h1>
+      <h4 class="card-title  text-center">There are not note yet.</h4>
+      <a href="/notes/add" class="btn btn-success w-100">Create One!</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
